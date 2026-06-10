@@ -38,3 +38,21 @@ Toda a lógica visual de marcação de itens e checklist foi isolada no frontend
    ```bash
    git clone [https://github.com/AdrianVIctor88/gerador-lista-compras.git](https://github.com/AdrianVIctor88/gerador-lista-compras.git)
    cd gerador-lista-compras
+
+2. **Crie e Ative o ambiente virtual:**
+   ```bash
+   python -m venv venv
+   # No Windows (PowerShell):
+   .\venv\Scripts\Activate.ps1
+   # No Windows (CMD):
+   .\venv\Scripts\activate.bat
+
+3. **Instale as dependências:**
+   ```bash
+   pip install flask
+
+4. **Execute a aplicação:**
+   ´´´bash
+   python app.py
+
+---
