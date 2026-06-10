@@ -52,7 +52,7 @@ Toda a lógica visual de marcação de itens e checklist foi isolada no frontend
    pip install flask
 
 4. **Execute a aplicação:**
-   ´´´bash
+   ```bash
    python app.py
 
 ---
