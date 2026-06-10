@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Compras</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <main class="container">
+        
+        <header class="app-header">
+            <h1>Lista de Compras</h1>
+            <form action="/adicionar" method="POST">
+                <input type="text" name="item" aria-label="Nome do item para comprar" placeholder="Ex: Refrigerante" required autocomplete="off" autofocus>
+                <input type="number" name="quantidade" aria-label="Quantidade do item"  placeholder="Qtd" min="1" required>
+                <button type="submit"><i class="fa-solid fa-plus"></i> Adicionar</button>
+            </form>
+        </header>
+
+        <section class="app-content">
+            <ul>
+                {% for elemento in lista %}
+                <li>
+                    <label class="item-checkbox-container">
+                        <input type="checkbox" class="item-checkbox">
+                        <span class="checkmark"></span>
+                        <span class="item-text"><strong>{{ elemento.item }}</strong></span>
+                    </label>
+                    <span class="badge">x {{ elemento.quantidade }}</span>
+                </li>
+               {% endfor %}
+            </ul>
+        </section>
+
+        {% if lista %}
+        <footer class="app-footer">
+            <button onclick="window.print()" class="print-btn">
+                <i class="fa-solid fa-print"></i> Imprimir Lista
+            </button>
+            
+            <a href="/limpar" class="limpar-btn" onclick="return confirm('Tem certeza que deseja apagar toda a lista?')">
+                <i class="fa-solid fa-trash-can"></i> Limpar Lista
+            </a>
+        </footer>
+        {% endif %}
+
+    </main>
+</body>
+</html>
